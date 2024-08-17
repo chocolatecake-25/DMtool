@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="mystyle.css" />
+  </head>
+  <body>
+    <!-- <img src="./img/cropped dragon.png" id="drago" width="500" /> -->
+    <h2 style="margin: 0.5rem">Combat Tracker</h2>
+    <div id="status">
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>AC</th>
+          <th>P.Perception</th>
+          <th>Sp.Vision</th>
+          <th>Vis.Range</th>
+          <th>Condition</th>
+          <th>Round Left</th>
+          <!-- <th>Reaction Used?</th> -->
+        </tr>
+        <tr>
+          <td>
+            <input
+              type="text"
+              id="p1name"
+              name="p1name"
+              placeholder="Player"
+              value="Player"
+            />
+          </td>
+          <td>
+            <select name="p1ac" id="p1ac" class="ac">
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+            </select>
+          </td>
+          <td>
+            <select name="p1pper" id="p1pper" class="pper">
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+              <option value="26">26</option>
+              <option value="27">27</option>
+              <option value="28">28</option>
+            </select>
+          </td>
+          <td>
+            <select name="p1spvis" id="p1spvis" class="spvis">
+              <option value="None">None</option>
+              <option value="Darkvision">Darkvision</option>
+              <option value="Blindsight">Blindsight</option>
+              <option value="Truesight">Truesight</option>
+              <option value="Tremorsense">Tremorsense</option>
+            </select>
+          </td>
+          <td>
+            <select name="p1visRange" id="p1visRange" class="visRange">
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+              <option value="30">30</option>
+              <option value="40">40</option>
+              <option value="60">60</option>
+              <option value="100">100</option>
+              <option value="120">120</option>
+            </select>
+          </td>
+          <td>
+            <select name="p1condition" id="p1condition" class="condition">
+              <option value="None">None</option>
+              <option value="Blinded">Blinded</option>
+              <option value="Charmed">Charmed</option>
+              <option value="Deafened">Deafened</option>
+              <option value="Exhaustion">Exhaustion</option>
+              <option value="Frightened">Frightened</option>
+              <option value="Grappled">Grappled</option>
+              <option value="Incapacitated">Incapacitated</option>
+              <option value="Invisible">Invisible</option>
+              <option value="Paralyzed">Paralyzed</option>
+              <option value="Petrified">Petrified</option>
+              <option value="Poisoned">Poisoned</option>
+              <option value="Prone">Prone</option>
+              <option value="Restrained">Restrained</option>
+              <option value="Stunned">Stunned</option>
+              <option value="UnconsciousUnconscious">Unconscious</option>
+            </select>
+          </td>
+          <td>
+            <select name="p1conLeft" id="p1conLeft" class="conLeft">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              type="text"
+              id="p2name"
+              name="p2name"
+              placeholder="Player"
+              value="Player"
+            />
+          </td>
+          <td>
+            <select name="p2ac" id="p2ac" class="ac">
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+            </select>
+          </td>
+          <td>
+            <select name="p2pper" id="p2pper" class="pper">
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+              <option value="26">26</option>
+              <option value="27">27</option>
+              <option value="28">28</option>
+            </select>
+          </td>
+          <td>
+            <select name="p2spvis" id="p2spvis" class="spvis">
+              <option value="None">None</option>
+              <option value="Darkvision">Darkvision</option>
+              <option value="Blindsight">Blindsight</option>
+              <option value="Truesight">Truesight</option>
+              <option value="Tremorsense">Tremorsense</option>
+            </select>
+          </td>
+          <td>
+            <select name="p2visRange" id="p2visRange" class="visRange">
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+              <option value="30">30</option>
+              <option value="40">40</option>
+              <option value="60">60</option>
+              <option value="100">100</option>
+              <option value="120">120</option>
+            </select>
+          </td>
+          <td>
+            <select name="p2condition" id="p2condition" class="condition">
+              <option value="None">None</option>
+              <option value="Blinded">Blinded</option>
+              <option value="Charmed">Charmed</option>
+              <option value="Deafened">Deafened</option>
+              <option value="Exhaustion">Exhaustion</option>
+              <option value="Frightened">Frightened</option>
+              <option value="Grappled">Grappled</option>
+              <option value="Incapacitated">Incapacitated</option>
+              <option value="Invisible">Invisible</option>
+              <option value="Paralyzed">Paralyzed</option>
+              <option value="Petrified">Petrified</option>
+              <option value="Poisoned">Poisoned</option>
+              <option value="Prone">Prone</option>
+              <option value="Restrained">Restrained</option>
+              <option value="Stunned">Stunned</option>
+              <option value="Unconscious">Unconscious</option>
+            </select>
+          </td>
+          <td>
+            <select name="p2conLeft" id="p2conLeft" class="conLeft">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              type="text"
+              id="p3name"
+              name="p3name"
+              placeholder="Player"
+              value="Player"
+            />
+          </td>
+          <td>
+            <select name="p3ac" id="p3ac" class="ac">
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+            </select>
+          </td>
+          <td>
+            <select name="p3pper" id="p3pper" class="pper">
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+              <option value="26">26</option>
+              <option value="27">27</option>
+              <option value="28">28</option>
+            </select>
+          </td>
+          <td>
+            <select name="p3spvis" id="p3spvis" class="spvis">
+              <option value="None">None</option>
+              <option value="Darkvision">Darkvision</option>
+              <option value="Blindsight">Blindsight</option>
+              <option value="Truesight">Truesight</option>
+              <option value="Tremorsense">Tremorsense</option>
+            </select>
+          </td>
+          <td>
+            <select name="p3visRange" id="p3visRange" class="visRange">
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+              <option value="30">30</option>
+              <option value="40">40</option>
+              <option value="60">60</option>
+              <option value="100">100</option>
+              <option value="120">120</option>
+            </select>
+          </td>
+          <td>
+            <select name="p3condition" id="p3condition" class="condition">
+              <option value="None">None</option>
+              <option value="Blinded">Blinded</option>
+              <option value="Charmed">Charmed</option>
+              <option value="Deafened">Deafened</option>
+              <option value="Exhaustion">Exhaustion</option>
+              <option value="Frightened">Frightened</option>
+              <option value="Grappled">Grappled</option>
+              <option value="Incapacitated">Incapacitated</option>
+              <option value="Invisible">Invisible</option>
+              <option value="Paralyzed">Paralyzed</option>
+              <option value="Petrified">Petrified</option>
+              <option value="Poisoned">Poisoned</option>
+              <option value="Prone">Prone</option>
+              <option value="Restrained">Restrained</option>
+              <option value="Stunned">Stunned</option>
+              <option value="Unconscious">Unconscious</option>
+            </select>
+          </td>
+          <td>
+            <select name="p3conLeft" id="p3conLeft" class="conLeft">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              type="text"
+              id="p4name"
+              name="p4name"
+              placeholder="Player"
+              value="Player"
+            />
+          </td>
+          <td>
+            <select name="p4ac" id="p4ac" class="ac">
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+            </select>
+          </td>
+          <td>
+            <select name="p4pper" id="p4pper" class="pper">
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+              <option value="26">26</option>
+              <option value="27">27</option>
+              <option value="28">28</option>
+            </select>
+          </td>
+          <td>
+            <select name="p4spvis" id="p4spvis" class="spvis">
+              <option value="None">None</option>
+              <option value="Darkvision">Darkvision</option>
+              <option value="Blindsight">Blindsight</option>
+              <option value="Truesight">Truesight</option>
+              <option value="Tremorsense">Tremorsense</option>
+            </select>
+          </td>
+          <td>
+            <select name="p4visRange" id="p4visRange" class="visRange">
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+              <option value="30">30</option>
+              <option value="40">40</option>
+              <option value="60">60</option>
+              <option value="100">100</option>
+              <option value="120">120</option>
+            </select>
+          </td>
+          <td>
+            <select name="p4condition" id="p4condition" class="condition">
+              <option value="None">None</option>
+              <option value="Blinded">Blinded</option>
+              <option value="Charmed">Charmed</option>
+              <option value="Deafened">Deafened</option>
+              <option value="Exhaustion">Exhaustion</option>
+              <option value="Frightened">Frightened</option>
+              <option value="Grappled">Grappled</option>
+              <option value="Incapacitated">Incapacitated</option>
+              <option value="Invisible">Invisible</option>
+              <option value="Paralyzed">Paralyzed</option>
+              <option value="Petrified">Petrified</option>
+              <option value="Poisoned">Poisoned</option>
+              <option value="Prone">Prone</option>
+              <option value="Restrained">Restrained</option>
+              <option value="Stunned">Stunned</option>
+              <option value="Unconscious">Unconscious</option>
+            </select>
+          </td>
+          <td>
+            <select name="p4conLeft" id="p4conLeft" class="conLeft">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              type="text"
+              id="p5name"
+              name="p5name"
+              placeholder="Player"
+              value="Player"
+            />
+          </td>
+          <td>
+            <select name="p5ac" id="p5ac" class="ac">
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+            </select>
+          </td>
+          <td>
+            <select name="p5pper" id="p5pper" class="pper">
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+              <option value="26">26</option>
+              <option value="27">27</option>
+              <option value="28">28</option>
+            </select>
+          </td>
+          <td>
+            <select name="p5spvis" id="p5spvis" class="spvis">
+              <option value="None">None</option>
+              <option value="Darkvision">Darkvision</option>
+              <option value="Blindsight">Blindsight</option>
+              <option value="Truesight">Truesight</option>
+              <option value="Tremorsense">Tremorsense</option>
+            </select>
+          </td>
+          <td>
+            <select name="p5visRange" id="p5visRange" class="visRange">
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+              <option value="30">30</option>
+              <option value="40">40</option>
+              <option value="60">60</option>
+              <option value="100">100</option>
+              <option value="120">120</option>
+            </select>
+          </td>
+          <td>
+            <select name="p5condition" id="p5condition" class="condition">
+              <option value="None">None</option>
+              <option value="Blinded">Blinded</option>
+              <option value="Charmed">Charmed</option>
+              <option value="Deafened">Deafened</option>
+              <option value="Exhaustion">Exhaustion</option>
+              <option value="Frightened">Frightened</option>
+              <option value="Grappled">Grappled</option>
+              <option value="Incapacitated">Incapacitated</option>
+              <option value="Invisible">Invisible</option>
+              <option value="Paralyzed">Paralyzed</option>
+              <option value="Petrified">Petrified</option>
+              <option value="Poisoned">Poisoned</option>
+              <option value="Prone">Prone</option>
+              <option value="Restrained">Restrained</option>
+              <option value="Stunned">Stunned</option>
+              <option value="UnconsciousUnconscious">Unconscious</option>
+            </select>
+          </td>
+          <td>
+            <select name="p5conLeft" id="p5conLeft" class="conLeft">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              type="text"
+              id="p6name"
+              name="p6name"
+              placeholder="Player"
+              value="Player"
+            />
+          </td>
+          <td>
+            <select name="p6ac" id="p6ac" class="ac">
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+            </select>
+          </td>
+          <td>
+            <select name="p6pper" id="p6pper" class="pper">
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+              <option value="26">26</option>
+              <option value="27">27</option>
+              <option value="28">28</option>
+            </select>
+          </td>
+          <td>
+            <select name="p6spvis" id="p6spvis" class="spvis">
+              <option value="None">None</option>
+              <option value="Darkvision">Darkvision</option>
+              <option value="Blindsight">Blindsight</option>
+              <option value="Truesight">Truesight</option>
+              <option value="Tremorsense">Tremorsense</option>
+            </select>
+          </td>
+          <td>
+            <select name="p6visRange" id="p6visRange" class="visRange">
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+              <option value="30">30</option>
+              <option value="40">40</option>
+              <option value="60">60</option>
+              <option value="100">100</option>
+              <option value="120">120</option>
+            </select>
+          </td>
+          <td>
+            <select name="p6condition" id="p6condition" class="condition">
+              <option value="None">None</option>
+              <option value="Blinded">Blinded</option>
+              <option value="Charmed">Charmed</option>
+              <option value="Deafened">Deafened</option>
+              <option value="Exhaustion">Exhaustion</option>
+              <option value="Frightened">Frightened</option>
+              <option value="Grappled">Grappled</option>
+              <option value="Incapacitated">Incapacitated</option>
+              <option value="Invisible">Invisible</option>
+              <option value="Paralyzed">Paralyzed</option>
+              <option value="Petrified">Petrified</option>
+              <option value="Poisoned">Poisoned</option>
+              <option value="Prone">Prone</option>
+              <option value="Restrained">Restrained</option>
+              <option value="Stunned">Stunned</option>
+              <option value="UnconsciousUnconscious">Unconscious</option>
+            </select>
+          </td>
+          <td>
+            <select name="p6conLeft" id="p6conLeft" class="conLeft">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+      <!-- <div id="buttons">
+        <div id="buttons-heading">Buttons</div>
+        <button type="button" id="resetReaction" onclick="resetReaction()">
+          Reset Reaction
+        </button>
+      </div> -->
+    </div>
+    <div id="record">
+      <table>
+        <tr>
+          <th></th>
+          <th>Action</th>
+          <th>Bonus Action</th>
+          <th>Reaction</th>
+        </tr>
+        <tr>
+          <td><p class="nameDisplay" id="p1r1nameDisplay"></p></td>
+          <td><input type="text" id="p1r1action" /></td>
+          <td><input type="text" id="p1r1bAction" /></td>
+          <td><input type="text" id="p1r1reaction" /></td>
+        </tr>
+        <tr>
+          <td><p class="nameDisplay" id="p2r1nameDisplay"></p></td>
+          <td><input type="text" id="p1r1action" /></td>
+          <td><input type="text" id="p1r1bAction" /></td>
+          <td><input type="text" id="p1r1reaction" /></td>
+        </tr>
+        <tr>
+          <td><p class="nameDisplay" id="p3r1nameDisplay"></p></td>
+          <td><input type="text" id="p1r1action" /></td>
+          <td><input type="text" id="p1r1bAction" /></td>
+          <td><input type="text" id="p1r1reaction" /></td>
+        </tr>
+        <tr>
+          <td><p class="nameDisplay" id="p4r1nameDisplay"></p></td>
+          <td><input type="text" id="p1r1action" /></td>
+          <td><input type="text" id="p1r1bAction" /></td>
+          <td><input type="text" id="p1r1reaction" /></td>
+        </tr>
+        <tr>
+          <td><p class="nameDisplay" id="p5r1nameDisplay"></p></td>
+          <td><input type="text" id="p1r1action" /></td>
+          <td><input type="text" id="p1r1bAction" /></td>
+          <td><input type="text" id="p1r1reaction" /></td>
+        </tr>
+        <tr>
+          <td><p class="nameDisplay" id="p6r1nameDisplay"></p></td>
+          <td><input type="text" id="p1r1action" /></td>
+          <td><input type="text" id="p1r1bAction" /></td>
+          <td><input type="text" id="p1r1reaction" /></td>
+        </tr>
+      </table>
+    </div>
+  </body>
+  <script src="myscripts.js"></script>
+</html>
